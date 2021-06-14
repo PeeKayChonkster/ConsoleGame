@@ -52,12 +52,14 @@ void App::changeLevel()
 	{
 		double tilesFromFloorY = double(currMap->getLevH() - playerPtr->ePhysics.getCoordinates().Y);
 		std::wstring levName = currMap->getNameRIGHT();
+		Map* oldmap = currMap;
 		currMap = new Map(10, 10);
 		currMap->diskIn(levName);
 		graphycs.setMap(currMap);
 		playerPtr->ePhysics.setCurrMap(currMap, { 0, currMap->getLevH() - tilesFromFloorY });
 		playerPtr->setColor(int(colors::BrightWhite) + currMap->getBackground());
 		graphycs.setScreenCenter(playerPtr->ePhysics.getCoordinates());
+		delete oldmap;
 		graphycs.changeScreenEffect(currMap);
 	}
 	else
@@ -65,12 +67,14 @@ void App::changeLevel()
 	{
 		double tilesFromFloorY = double(currMap->getLevH() - playerPtr->ePhysics.getCoordinates().Y);
 		std::wstring levName = currMap->getNameLEFT();
+		Map* oldmap = currMap;
 		currMap = new Map(10, 10);
 		currMap->diskIn(levName);
 		graphycs.setMap(currMap);
 		playerPtr->ePhysics.setCurrMap(currMap, { double(currMap->getLevW() - 1), currMap->getLevH() - tilesFromFloorY });
 		playerPtr->setColor(int(colors::BrightWhite) + currMap->getBackground());
 		graphycs.setScreenCenter(playerPtr->ePhysics.getCoordinates());
+		delete oldmap;
 		graphycs.changeScreenEffect(currMap);
 	}
 	else
@@ -78,12 +82,14 @@ void App::changeLevel()
 	{
 		double tilesFromFloorX = double(playerPtr->ePhysics.getCoordinates().X);
 		std::wstring levName = currMap->getNameUP();
+		Map* oldmap = currMap;
 		currMap = new Map(10, 10);
 		currMap->diskIn(levName);
 		graphycs.setMap(currMap);
 		playerPtr->ePhysics.setCurrMap(currMap, { tilesFromFloorX,  double(currMap->getLevH() - 1) });
 		playerPtr->setColor(int(colors::BrightWhite) + currMap->getBackground());
 		graphycs.setScreenCenter(playerPtr->ePhysics.getCoordinates());
+		delete oldmap;
 		graphycs.changeScreenEffect(currMap);
 	}
 	else
@@ -91,12 +97,14 @@ void App::changeLevel()
 	{
 		double tilesFromFloorX = double(playerPtr->ePhysics.getCoordinates().X);
 		std::wstring levName = currMap->getNameDOWN();
+		Map* oldmap = currMap;
 		currMap = new Map(10, 10);
 		currMap->diskIn(levName);
 		graphycs.setMap(currMap);
 		playerPtr->ePhysics.setCurrMap(currMap, { playerPtr->ePhysics.getCoordinates().X, 1.0 });
 		playerPtr->setColor(int(colors::BrightWhite) + currMap->getBackground());
 		graphycs.setScreenCenter(playerPtr->ePhysics.getCoordinates());
+		delete oldmap;
 		graphycs.changeScreenEffect(currMap);
 	}
 }
