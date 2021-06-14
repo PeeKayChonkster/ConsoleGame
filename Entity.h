@@ -1,0 +1,36 @@
+#pragma once
+#include "Physics.h"
+#include <string>
+
+
+
+
+
+////////////////////////////////////////// CLASS Entity //////////////////////////////////////////////////
+class Entity
+{
+private:
+	std::wstring name;
+	CHAR_INFO symb;
+public:
+	Physics ePhysics;
+	Entity(std::wstring n, fcoor c, CHAR_INFO ch, double mass, Map* m);
+	CHAR_INFO getSymb() const noexcept;
+	const Map* getCurrMap() const;
+	void setColor(int col);
+	//bool entityIsDead() const noexcept;
+};
+/////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////  CLASS Player  ///////////////////////////////////////////////
+
+class Player : public Entity
+{
+private:
+
+public:
+	Controls controls;
+	Player(std::wstring n, fcoor c, CHAR_INFO ch, double mass, Map* map);
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////
