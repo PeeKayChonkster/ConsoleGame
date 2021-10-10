@@ -6,4 +6,5 @@ int main()
 {
 	App app;
 	app.play();
+	return 0;
 }

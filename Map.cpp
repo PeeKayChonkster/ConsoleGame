@@ -160,7 +160,7 @@ bool Map::diskIn(std::wstring levName)
 			}
 			continue;
 			break;
-		case'D':									//name of the loser map
+		case'D':									//name of the lower map
 			buf = file.get();
 			while (nameFlag)
 			{
